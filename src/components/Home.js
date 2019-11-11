@@ -19,7 +19,7 @@ export default class Test extends Component {
       value: ""
     };
   }
-  async componentWillMount() {
+  async componentDidMount() {
     const res = await axios.get("https://api.tvmaze.com/search/shows?q=test");
     this.setState({
       data: res.data
@@ -48,6 +48,7 @@ export default class Test extends Component {
                 value={value}
                 onChange={this.handleChange}
                 style={{ display: "table", margin: "0 auto" }}
+                autoComplete="off"
               />
             </div>
 
@@ -56,6 +57,17 @@ export default class Test extends Component {
               data={data}
               renderResults={results => (
                 <Fragment>
+                  <div style={{ display: "table", margin: "10px auto" }}>
+                    {results.length === 0 ? (
+                      <h4 style={{ marginBottom: "260px" }}>
+                        Pas de résultats
+                      </h4>
+                    ) : (
+                      <h4>
+                        Voici les {results.length} résultat(s) de recherche
+                      </h4>
+                    )}
+                  </div>
                   <Grid container spacing={4}>
                     {results.map(film => (
                       <Grid item key={film.show.id} xs={12} sm={6} md={4}>

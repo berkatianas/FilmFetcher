@@ -9,7 +9,8 @@ export default class Home extends Component {
         <footer
           style={{
             backgroundColor: "white",
-            padding: "24px"
+            padding: "24px",
+            flexShrink: "0px"
           }}
         >
           <Typography

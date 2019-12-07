@@ -98,7 +98,7 @@ export default class Test extends Component {
                             <Typography>{film.show.language}</Typography>
                             <Typography>{film.show.premiered}</Typography>
                             <Typography>
-                              {film.show.network.country.name}
+                              Score : {film.score ? film.score : ""}
                             </Typography>
                           </CardContent>
                           <CardActions style={{ justifyContent: "center" }}>
